@@ -1,26 +1,33 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-brand-50: #ddeefc;
+  --color-brand-100: #ced6e0;
+  --color-brand-300: #3d9cff;
+  --color-brand-500: #2364d2;
+  --color-brand-700: #1d4fa3;
+  --color-brand-900: #1a3b5d;
+  --color-ink: #1c1d27;
+
+  /* Payment lifecycle */
+  --color-status-success: #16a34a;
+  --color-status-error: #dc2626;
+  --color-status-warning: #d97706;
+
+  /* Font families wired from next/font in app/layout.tsx */
+  --font-sans: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-source-code), ui-monospace, monospace;
+
+  /* Shadows */
+  --shadow-card: 0 30px 60px 0 rgba(90, 116, 148, 0.4);
+  --shadow-card-elevated: 0 20px 60px 0 rgba(14, 42, 90, 0.55);
+  --shadow-button: 3px 10px 20px 0 rgba(35, 100, 210, 0.3);
+  --shadow-input-focus: 0 10px 20px -13px rgba(32, 56, 117, 0.35);
+  --shadow-cvv-band: 0 10px 20px -7px rgba(32, 56, 117, 0.35);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-brand-50 font-sans text-brand-900 text-base antialiased;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
