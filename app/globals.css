@@ -124,7 +124,7 @@
     background-repeat: no-repeat;
   }
 
-    /* ---------------- Card-number input with inline brand badge ---------------- */
+    /*  Card-number input with inline brand badge  */
     .card-input-wrap {
       @apply relative;
     }
