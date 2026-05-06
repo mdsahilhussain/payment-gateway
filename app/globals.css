@@ -31,3 +31,256 @@
     @apply bg-brand-50 font-sans text-brand-900 text-base antialiased;
   }
 }
+
+@layer components {
+  /*  Page layout  */
+  .page-shell {
+    @apply min-h-dvh flex items-center justify-center px-4 py-12;
+  }
+
+  .payment-container {
+    @apply w-full max-w-142.5 mx-auto;
+  }
+
+  /*  Buttons  */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md
+             font-semibold transition-all duration-200
+             disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-primary {
+    @apply h-13.75 w-full bg-brand-500 text-white text-lg
+             hover:bg-brand-700 active:scale-[0.99]
+             disabled:hover:bg-brand-500 disabled:active:scale-100;
+    box-shadow: var(--shadow-button);
+  }
+
+  .btn-secondary {
+    @apply h-12 px-6 bg-white text-brand-900 border border-brand-100
+             hover:border-brand-300;
+  }
+
+  .btn-ghost {
+    @apply h-10 px-4 text-brand-900 hover:bg-brand-50;
+  }
+
+  /*  Form layout  */
+  .form-card {
+    @apply bg-white rounded-[10px] p-6 pt-42.5 sm:p-9 sm:pt-45;
+    box-shadow: var(--shadow-card);
+  }
+
+  .form-row {
+    @apply flex items-start gap-6 max-sm:flex-wrap;
+  }
+
+  .form-col {
+    @apply flex-auto max-sm:w-full;
+  }
+
+  .form-col-cvv {
+    @apply max-w-[150px] max-sm:max-w-full;
+  }
+
+  .form-group {
+    @apply flex items-start gap-3 flex-wrap;
+  }
+
+  /*  Inputs  */
+  .input-group {
+    @apply mb-5;
+  }
+
+  .input-label {
+    @apply block text-sm font-semibold text-brand-900 mb-1.5 select-none;
+  }
+
+  .input {
+    @apply w-full h-12.5 rounded-md border border-brand-100
+             bg-transparent px-4 text-lg text-brand-900
+             transition-colors duration-200
+             hover:border-brand-300
+             focus:outline-none focus:border-brand-300
+             placeholder:text-brand-900/40;
+  }
+
+  .input:focus {
+    box-shadow: var(--shadow-input-focus);
+  }
+
+  /* Error state — overrides hover/focus borders too */
+  .input-error,
+  .input-error:hover,
+  .input-error:focus {
+    @apply border-status-error;
+  }
+
+  .select {
+    @apply appearance-none pr-9 cursor-pointer;
+    background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%231a3b5d'><path d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z'/></svg>");
+    background-size: 12px;
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+  }
+
+    /* ---------------- Card-number input with inline brand badge ---------------- */
+    .card-input-wrap {
+      @apply relative;
+    }
+  
+    .card-input-field {
+      @apply pr-16;
+    }
+  
+    .card-input-brand {
+      @apply absolute right-3 top-1/2 -translate-y-1/2
+             h-6 w-12 flex items-center justify-end pointer-events-none;
+    }
+
+  .error-message {
+    @apply mt-1.5 text-sm font-medium text-status-error;
+  }
+
+  .form-helper {
+    @apply mt-1.5 text-xs text-brand-900/60;
+  }
+
+  /*  Card preview: structure  */
+  .card-preview-wrap {
+    @apply relative z-10 -mb-32.5 max-sm:-mb-30;
+  }
+
+  .card-preview {
+    @apply relative w-full mx-auto h-67.5 max-w-107.5
+           max-sm:h-55 max-sm:max-w-77.5;
+    perspective: 2000px;
+  }
+
+  .card-flipper {
+    @apply relative w-full h-full transition-transform duration-700;
+    transform-style: preserve-3d;
+    transition-timing-function: cubic-bezier(0.71, 0.03, 0.56, 0.85);
+  }
+
+  .card-flipped {
+    transform: rotateY(180deg);
+  }
+
+  .card-side {
+    @apply absolute inset-0 rounded-[15px] overflow-hidden;
+    backface-visibility: hidden;
+    box-shadow: var(--shadow-card-elevated);
+  }
+
+  .card-side-back {
+    transform: rotateY(180deg);
+  }
+
+  /*  Card preview: background layer  */
+  .card-bg {
+    @apply absolute inset-0 bg-ink overflow-hidden rounded-[15px];
+  }
+
+  .card-bg::after {
+    content: "";
+    @apply absolute inset-0 bg-black/45 pointer-events-none;
+  }
+
+  .card-bg-image {
+    @apply w-full h-full object-cover;
+  }
+
+  /*  Card preview: front content  */
+  .card-front {
+    @apply relative z-10 h-full p-5 font-mono text-white select-none flex flex-col;
+    text-shadow: 7px 6px 10px rgba(14, 42, 90, 0.8);
+  }
+
+  .card-top {
+    @apply flex items-start justify-between mb-8 px-2 max-sm:mb-5;
+  }
+
+  .card-chip {
+    @apply w-14 max-sm:w-12;
+  }
+
+  .card-brand-slot {
+    @apply h-11 max-w-25 flex justify-end items-start
+           max-sm:h-9 max-sm:max-w-20;
+  }
+
+  .card-brand-img {
+    @apply max-h-full max-w-full object-contain object-top-right;
+  }
+
+  .card-number {
+    @apply text-[27px] font-medium leading-none mb-9 px-2
+           max-sm:text-[21px] max-sm:mb-4;
+  }
+
+  .card-number-digit {
+    @apply inline-block w-4 max-sm:w-3.25;
+  }
+
+  .card-number-digit-empty {
+    @apply w-7.5 max-sm:w-4;
+  }
+
+  .card-info {
+    @apply flex items-start mt-auto;
+  }
+
+  .card-holder {
+    @apply flex-1 min-w-0 px-3 py-2.5;
+  }
+
+  .card-holder-label {
+    @apply text-[13px] opacity-70 mb-1.5 max-sm:text-xs;
+  }
+
+  .card-holder-name {
+    @apply text-lg leading-none uppercase truncate max-sm:text-base;
+  }
+
+  .card-holder-placeholder {
+    @apply opacity-70;
+  }
+
+  .card-expiry {
+    @apply ml-auto px-2.5 py-2 text-lg whitespace-nowrap flex flex-wrap w-20
+           max-sm:text-base;
+  }
+
+  .card-expiry-label {
+    @apply w-full text-[13px] opacity-70 pb-1.5 max-sm:text-xs;
+  }
+
+  .card-expiry-value {
+    @apply font-mono;
+  }
+
+  /*  Card preview: back content  */
+  .card-back-band {
+    @apply w-full h-12.5 mt-7.5 bg-black/80 max-sm:mt-5 max-sm:h-10;
+  }
+
+  .card-cvv-section {
+    @apply text-right p-4 relative z-10;
+  }
+
+  .card-cvv-label {
+    @apply pr-2.5 text-[15px] font-semibold text-white mb-1.5;
+  }
+
+  .card-cvv-band {
+    @apply h-11 mb-7 bg-white text-brand-900 text-lg rounded
+           flex items-center justify-end pr-3
+           max-sm:h-10 max-sm:mb-5;
+    box-shadow: var(--shadow-cvv-band);
+  }
+
+  .card-cvv-mask {
+    @apply tracking-widest;
+  }
+}

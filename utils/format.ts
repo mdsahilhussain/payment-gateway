@@ -1,3 +1,4 @@
+import { Currency } from "@/types/payment";
 import { detectCardType, getCardConfig } from "./cardType";
 
 export function stripCardNumber(value: string): string {
@@ -25,4 +26,38 @@ export function formatCardNumber(rawValue: string): string {
     cursor += blockSize;
   }
   return groups.join(" ");
+}
+
+/** Last 4 digits — for transaction history display. */
+export function getCardLast4(cardNumber: string): string {
+  return stripCardNumber(cardNumber).slice(-4);
+}
+
+/** Locale per currency keeps the symbol/format consistent. */
+const CURRENCY_LOCALE: Record<Currency, string> = {
+  INR: "en-IN",
+  USD: "en-US",
+};
+
+/** Format a numeric amount as localised currency (e.g. ₹1,234.50, $1,234.50). */
+export function formatAmount(amount: number, currency: Currency): string {
+  return new Intl.NumberFormat(CURRENCY_LOCALE[currency], {
+    style: "currency",
+    currency,
+    maximumFractionDigits: 2,
+  }).format(amount);
+}
+
+/** Human-readable timestamp for transaction history. */
+export function formatTimestamp(ts: number): string {
+  return new Intl.DateTimeFormat("en-US", {
+    dateStyle: "medium",
+    timeStyle: "short",
+  }).format(new Date(ts));
+}
+
+/** "MM/YY" for the card preview's expiry slot. */
+export function formatExpiryShort(month: string, year: string): string {
+  if (!month || !year) return "";
+  return `${month}/${year.slice(-2)}`;
 }
