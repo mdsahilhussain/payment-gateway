@@ -5,6 +5,7 @@ import type { CardType } from "@/types/payment";
 import { detectCardType } from "@/utils/cardType";
 import { CardChip } from "./CardChip";
 import { CardBrand } from "./CardBrand";
+import { cn } from "@/utils";
 
 /**
  * Title: Five card-background gradients picked at random on mount.
@@ -44,7 +45,7 @@ export function CardPreview({
     return (
         <div className="card-preview-wrap">
             <div className="card-preview">
-                <div className={`card-flipper ${isFlipped ? "card-flipped" : ""}`}>
+                <div className={cn("card-flipper ", isFlipped && "card-flipped")}>
                     {/* ----- FRONT ----- */}
                     <div className="card-side">
                         <div
@@ -151,8 +152,8 @@ function CardNumberDisplay({ cardNumber, cardType }: CardNumberDisplayProps) {
                 return (
                     <span
                         key={index}
-                        className={`card-number-digit ${isSpace ? "card-number-digit-empty" : ""
-                            }`}
+                        className={cn("card-number-digit", isSpace && "card-number-digit-empty"
+                        )}
                     >
                         {displayChar}
                     </span>

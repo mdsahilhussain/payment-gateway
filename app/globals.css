@@ -32,7 +32,6 @@
   }
 }
 
-
 @layer components {
   /*  Page layout  */
   .page-shell {
@@ -42,6 +41,102 @@
   .payment-container {
     @apply w-full max-w-142.5 mx-auto;
   }
+
+  /*  Buttons  */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md
+             font-semibold transition-all duration-200
+             disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-primary {
+    @apply h-13.75 w-full bg-brand-500 text-white text-lg
+             hover:bg-brand-700 active:scale-[0.99]
+             disabled:hover:bg-brand-500 disabled:active:scale-100;
+    box-shadow: var(--shadow-button);
+  }
+
+  .btn-secondary {
+    @apply h-12 px-6 bg-white text-brand-900 border border-brand-100
+             hover:border-brand-300;
+  }
+
+  .btn-ghost {
+    @apply h-10 px-4 text-brand-900 hover:bg-brand-50;
+  }
+
+  /*  Form layout  */
+  .form-card {
+    @apply bg-white rounded-[10px] p-6 pt-42.5 sm:p-9 sm:pt-45;
+    box-shadow: var(--shadow-card);
+  }
+
+  .form-row {
+    @apply flex items-start gap-6 max-sm:flex-wrap;
+  }
+
+  .form-col {
+    @apply flex-auto max-sm:w-full;
+  }
+
+  .form-col-cvv {
+    @apply max-w-[150px] max-sm:max-w-full;
+  }
+
+  .form-group {
+    @apply flex items-start gap-3 flex-wrap;
+  }
+
+  /*  Inputs  */
+  .input-group {
+    @apply mb-5;
+  }
+
+  .input-label {
+    @apply block text-sm font-semibold text-brand-900 mb-1.5 select-none;
+  }
+
+  .input {
+    @apply w-full h-12.5 rounded-md border border-brand-100
+             bg-transparent px-4 text-lg text-brand-900
+             transition-colors duration-200
+             hover:border-brand-300
+             focus:outline-none focus:border-brand-300
+             placeholder:text-brand-900/40;
+  }
+
+  .input:focus {
+    box-shadow: var(--shadow-input-focus);
+  }
+
+  /* Error state — overrides hover/focus borders too */
+  .input-error,
+  .input-error:hover,
+  .input-error:focus {
+    @apply border-status-error;
+  }
+
+  .select {
+    @apply appearance-none pr-9 cursor-pointer;
+    background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%231a3b5d'><path d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z'/></svg>");
+    background-size: 12px;
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+  }
+
+    /* ---------------- Card-number input with inline brand badge ---------------- */
+    .card-input-wrap {
+      @apply relative;
+    }
+  
+    .card-input-field {
+      @apply pr-16;
+    }
+  
+    .card-input-brand {
+      @apply absolute right-3 top-1/2 -translate-y-1/2
+             h-6 w-12 flex items-center justify-end pointer-events-none;
+    }
 
   .error-message {
     @apply mt-1.5 text-sm font-medium text-status-error;
