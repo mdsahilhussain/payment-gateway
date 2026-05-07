@@ -42,7 +42,6 @@ function isValidBody(body: unknown): body is { transactionId: string } {
 }
 
 /* POST /api/pay */
-
 export async function POST(request: Request) {
   let body: unknown;
   try {
@@ -63,8 +62,6 @@ export async function POST(request: Request) {
 
   const { transactionId } = body;
   const outcome = pickOutcome();
-
-  console.log(`[POST /api/pay] ${transactionId} → ${outcome}`);
 
   if (outcome === "timeout") {
     await delay(SERVER_TIMEOUT_DELAY_MS);
