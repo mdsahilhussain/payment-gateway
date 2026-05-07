@@ -1,4 +1,3 @@
-// components/PaymentFlow.tsx
 "use client";
 
 import { usePaymentStore } from "@/store/paymentStore";

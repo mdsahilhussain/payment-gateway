@@ -93,10 +93,6 @@ async function sendRequest(): Promise<void> {
   }
 }
 
-/* -------------------------------------------------------------------------
- * Hook
- * ----------------------------------------------------------------------- */
-
 interface UsePaymentReturn {
   submit: (input: BeginAttemptInput) => Promise<void>;
   retry: () => Promise<void>;
