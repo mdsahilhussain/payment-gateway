@@ -37,7 +37,7 @@ function VisaMark() {
         fontWeight="900"
         fontStyle="italic"
         fontFamily="Arial, Helvetica, sans-serif"
-        fill="#fff"
+        fill="#708090"
         letterSpacing="-1"
       >
         VISA

@@ -40,13 +40,11 @@ export function CardPreview({
     const [bgIndex] = useState(() => Math.floor(Math.random() * CARD_BACKGROUNDS.length));
     const background = CARD_BACKGROUNDS[bgIndex];
 
-    console.log('CardPreview render:', { cardNumber, cardType, isFlipped });
-
     return (
         <div className="card-preview-wrap">
             <div className="card-preview">
                 <div className={cn("card-flipper ", isFlipped && "card-flipped")}>
-                    {/* ----- FRONT ----- */}
+                    {/*  FRONT  */}
                     <div className="card-side">
                         <div
                             className="card-bg"
@@ -88,7 +86,7 @@ export function CardPreview({
                         </div>
                     </div>
 
-                    {/* ----- BACK ----- */}
+                    {/*  BACK  */}
                     <div className="card-side card-side-back">
                         <div
                             className="card-bg"
