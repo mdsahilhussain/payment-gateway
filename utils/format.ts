@@ -28,7 +28,7 @@ export function formatCardNumber(rawValue: string): string {
   return groups.join(" ");
 }
 
-/** Last 4 digits — for transaction history display. */
+/** Last 4 digits for transaction history display. */
 export function getCardLast4(cardNumber: string): string {
   return stripCardNumber(cardNumber).slice(-4);
 }

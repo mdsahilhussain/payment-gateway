@@ -29,7 +29,7 @@ function delay(ms: number): Promise<void> {
 
 /**
  * Title: Type guard for incoming body. The mock gateway only requires `transactionId`
- * — everything else is echoed without validation, which is fine because the
+ *  everything else is echoed without validation, which is fine because the
  * frontend has already validated. A real gateway would validate every field.
  */
 function isValidBody(body: unknown): body is { transactionId: string } {

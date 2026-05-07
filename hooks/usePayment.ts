@@ -33,7 +33,7 @@ async function sendRequest(): Promise<void> {
 
   const controller = new AbortController();
 
-  // Frontend timeout — fires before the server's 8s stall on timeout outcomes.
+  // Frontend timeout  fires before the server's 8s stall on timeout outcomes.
   const timeoutId = setTimeout(
     () => controller.abort(),
     REQUEST_TIMEOUT_MS
@@ -87,7 +87,7 @@ async function sendRequest(): Promise<void> {
       // Distinct user-facing message from gateway-returned failures.
       completeAttempt({
         status: "failed",
-        reason: "Network error — please check your connection",
+        reason: "Network error  please check your connection",
       });
     }
   }

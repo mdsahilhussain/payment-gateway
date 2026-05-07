@@ -18,7 +18,7 @@ const sourceCode = Source_Code_Pro({
 
 export const metadata: Metadata = {
   title: "Payment Gateway",
-  description: "Mid-level frontend assignment — mock payment gateway",
+  description: "Mid-level frontend assignment mock payment gateway",
 };
 
 export default function RootLayout({
