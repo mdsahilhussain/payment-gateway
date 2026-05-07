@@ -84,7 +84,7 @@ export function isFormValid(errors: FormErrors): boolean {
 
 /*
  * Title: Luhn algorithm implementation.
- * Luhn algorithm — checksum validation for card numbers. Not strictly required by the spec, but every real card number passes Luhn,
+ * Luhn algorithm checksum validation for card numbers. Not strictly required by the spec, but every real card number passes Luhn,
  * so failing it catches typos cheaply. Stripe/test cards (4242…) all pass.
  */
 function luhnCheck(digits: string): boolean {

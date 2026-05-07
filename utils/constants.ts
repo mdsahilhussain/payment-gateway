@@ -17,7 +17,7 @@ export const GATEWAY_OUTCOMES = {
 export const FAILURE_REASONS = [
   "Insufficient funds",
   "Card declined by issuer",
-  "Suspected fraud — contact your bank",
+  "Suspected fraud contact your bank",
   "Authentication failed",
   "Gateway error",
 ] as const;

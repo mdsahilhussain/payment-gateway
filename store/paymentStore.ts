@@ -215,7 +215,7 @@ export const usePaymentStore = create<PaymentState>()(
 );
 
 /* 
- * Selectors — composable helpers for components.
+ * Selectors composable helpers for components.
  * Use as: `usePaymentStore(selectCanRetry)`
  *  */
 

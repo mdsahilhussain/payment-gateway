@@ -34,7 +34,7 @@ export interface PaymentApiResponse {
 }
 
 /**
- Persisted transaction record. One entry per transactionId — retries update the same record.
+ Persisted transaction record. One entry per transactionId retries update the same record.
  */
 export interface Transaction {
   id: string;
@@ -52,7 +52,7 @@ export interface Transaction {
 }
 
 /**
- Form-level types — kept separate from PaymentPayload because the form holds strings (e.g. amount as text) before normalisation.
+ Form-level types  kept separate from PaymentPayload because the form holds strings (e.g. amount as text) before normalisation.
  */
 export interface FormValues {
   cardholderName: string;
