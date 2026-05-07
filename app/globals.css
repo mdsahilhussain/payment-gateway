@@ -80,7 +80,7 @@
   }
 
   .form-col-cvv {
-    @apply max-w-[150px] max-sm:max-w-full;
+    @apply max-w-37.5 max-sm:max-w-full;
   }
 
   .form-group {
@@ -117,26 +117,30 @@
   }
 
   .select {
-    @apply appearance-none pr-9 cursor-pointer;
+    @apply appearance-none  w-full h-12.5 rounded-md border border-brand-100
+             bg-transparent pl-4 pr-10 text-lg text-brand-900
+             transition-colors duration-200
+             hover:border-brand-300
+             focus:outline-none focus:border-brand-300;
     background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%231a3b5d'><path d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z'/></svg>");
     background-size: 12px;
     background-position: right 12px center;
     background-repeat: no-repeat;
   }
 
-    /*  Card-number input with inline brand badge  */
-    .card-input-wrap {
-      @apply relative;
-    }
-  
-    .card-input-field {
-      @apply pr-16;
-    }
-  
-    .card-input-brand {
-      @apply absolute right-3 top-1/2 -translate-y-1/2
+  /*  Card-number input with inline brand badge  */
+  .card-input-wrap {
+    @apply relative;
+  }
+
+  .card-input-field {
+    @apply pr-16;
+  }
+
+  .card-input-brand {
+    @apply absolute right-3 top-1/2 -translate-y-1/2
              h-6 w-12 flex items-center justify-end pointer-events-none;
-    }
+  }
 
   .error-message {
     @apply mt-1.5 text-sm font-medium text-status-error;
@@ -283,4 +287,55 @@
   .card-cvv-mask {
     @apply tracking-widest;
   }
+
+  /*  Status screen  */
+  .status-screen {
+    @apply bg-white rounded-[10px] p-9 sm:p-12 text-center
+           outline-none flex flex-col items-center;
+    box-shadow: var(--shadow-card);
+  }
+
+  .status-icon {
+    @apply w-20 h-20 mb-6 flex items-center justify-center rounded-full text-white;
+  }
+  .status-icon-success {
+    @apply bg-status-success;
+  }
+  .status-icon-error {
+    @apply bg-status-error;
+  }
+  .status-icon-warning {
+    @apply bg-status-warning;
+  }
+
+  .status-spinner {
+    @apply w-16 h-16 mb-6 rounded-full border-4
+           border-brand-100 border-t-brand-500 animate-spin;
+  }
+
+  .status-title {
+    @apply text-2xl font-bold text-brand-900 mb-2;
+  }
+  .status-message {
+    @apply text-brand-900/70 mb-2 max-w-sm;
+  }
+  .status-amount {
+    @apply text-3xl font-bold text-brand-900 my-3;
+  }
+  .status-meta {
+    @apply text-sm text-brand-900/70 mb-1;
+  }
+
+  .status-attempt {
+    @apply inline-block text-sm font-semibold text-brand-900/60
+           bg-brand-50 rounded-full px-3 py-1 mt-2 mb-4;
+  }
+
+  .status-actions {
+    @apply flex flex-col gap-3 w-full mt-4;
+  }
+  .status-final {
+    @apply text-status-error font-medium mt-2;
+  }
+
 }
