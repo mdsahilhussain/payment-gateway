@@ -1,4 +1,3 @@
-// components/CardInput.tsx
 "use client";
 
 import { detectCardType } from "@/utils/cardType";
